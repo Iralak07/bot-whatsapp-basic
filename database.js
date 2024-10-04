@@ -2,7 +2,7 @@ const PostgreSQLAdapter = require('@bot-whatsapp/database/postgres')
 
 const POSTGRES_DB_HOST = 'localhost'
 const POSTGRES_DB_USER = 'postgres'
-const POSTGRES_DB_PASSWORD = '3919305001'
+const POSTGRES_DB_PASSWORD = '123456789'
 const POSTGRES_DB_NAME = 'chatbotrest'
 const POSTGRES_DB_PORT = '5432'
 
