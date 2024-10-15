@@ -1,0 +1,374 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A1EF8757ADDFA655A1E',
+    participant: undefined
+  },
+  messageTimestamp: 1728958589,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: 'den',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'den',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3AE2F245266FF2AAADE2',
+    participant: undefined
+  },
+  messageTimestamp: 1728958593,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: 'demo',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'demo',
+  from: '595995380999'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_22c177f4-f7b9-4b53-b64f-097f72720c13',
+  keyword: 'key_77af06e7-393f-48c0-88b7-f2c18be7671c',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '37990677d3a3998bb429f2b224f96d5b'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A59B7C7810AC1DF9F61',
+    participant: undefined
+  },
+  messageTimestamp: 1728958603,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '16.012.123-4',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '16.012.123-4',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A5E8F77EDBFE669E362',
+    participant: undefined
+  },
+  messageTimestamp: 1728958616,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '3',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '3',
+  from: '595995380999'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_9dadf5af-388b-4e83-b4b6-9d0ef357c3f2',
+  answer: '👗 *Selecciona una categoría de ropa para verificar la disponibilidad*:\n' +
+    '1. Camisas 👕\n' +
+    '2. Pantalones 👖\n' +
+    '3. Vestidos 👗\n' +
+    '4. Chaquetas 🧥\n' +
+    '5. Ropa Deportiva 🏋️\n' +
+    '6. Accesorios 🎒\n' +
+    '7. Zapatos 👟',
+  keyword: 'key_e1593c14-c2cc-4ef3-967c-ac2c50ef6bee',
+  options: {
+    ref: null,
+    idle: 50000,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [],
+    buttons: [],
+    capture: true,
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '5426b02bfa987e2d1218ce608c1069b9'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3AEF3CD01F7E7A194AB2',
+    participant: undefined
+  },
+  messageTimestamp: 1728958621,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '1',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A888BD56EAA5AB47E03',
+    participant: undefined
+  },
+  messageTimestamp: 1728958629,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '2',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '2',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3AB6BFBBEAB97DF4A8C6',
+    participant: undefined
+  },
+  messageTimestamp: 1728958635,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: 'demo',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'demo',
+  from: '595995380999'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_22c177f4-f7b9-4b53-b64f-097f72720c13',
+  keyword: 'key_77af06e7-393f-48c0-88b7-f2c18be7671c',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '37990677d3a3998bb429f2b224f96d5b'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A7D631370240D93964D',
+    participant: undefined
+  },
+  messageTimestamp: 1728958645,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '16.012.123-6',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '16.012.123-6',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3AC7C0F8FA7E7AA86433',
+    participant: undefined
+  },
+  messageTimestamp: 1728958657,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: 'Claudio Servín acuña',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Claudio Servín acuña',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A6EA28088969B450C71',
+    participant: undefined
+  },
+  messageTimestamp: 1728958669,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '1',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A30FC55D52CBF4DA075',
+    participant: undefined
+  },
+  messageTimestamp: 1728958688,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: 'Claudio@gmail.con',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: 'Claudio@gmail.con',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A67D7F2DE3DCEA4F956',
+    participant: undefined
+  },
+  messageTimestamp: 1728958693,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '1',
+  from: '595995380999'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3AEB4F5A9D5AA4B01CB1',
+    participant: undefined
+  },
+  messageTimestamp: 1728958712,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '1',
+  from: '595995380999'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e645eafe-bdb5-4366-85d1-9150d576d2bd',
+  answer: '🕒 *Nuestro horario de atención es*:\n' +
+    'De lunes a viernes, de 9:00 a.m. a 6:00 p.m. 🛍️',
+  keyword: 'key_945a177c-fb1a-43f7-9d22-647004aaae8c',
+  options: {
+    ref: null,
+    idle: 5000,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [],
+    buttons: [],
+    capture: true,
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '861ed4070fd52161c120951ee1eadd97'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '595995380999@s.whatsapp.net',
+    fromMe: false,
+    id: '3A89754B7BA2E4710685',
+    participant: undefined
+  },
+  messageTimestamp: 1728958722,
+  pushName: 'Marco',
+  broadcast: false,
+  message: Message {
+    conversation: '2',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  body: '2',
+  from: '595995380999'
+}

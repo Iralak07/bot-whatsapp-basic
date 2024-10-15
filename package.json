@@ -6,6 +6,7 @@
     "scripts": {
         "prestart": "npx eslint . --no-ignore",
         "pre-copy": "cd .. && npm run  copy.lib base-baileys-postgres",
+        "dev": "nodemon app.js",
         "start": "node app.js"
     },
     "keywords": [],
@@ -19,6 +20,7 @@
         "cache-manager": "5.2.4",
         "dotenv": "^16.4.5",
         "fs": "^0.0.1-security",
+        "nodemon": "^3.1.7",
         "path": "^0.12.7",
         "pg": "^8.11.2",
         "wa-sticker-formatter": "4.4.4"

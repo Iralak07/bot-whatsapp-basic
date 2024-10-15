@@ -199,15 +199,175 @@ const flowPrincipal = addKeyword(EVENTS.ACTION)
     );
 
 // Flujo de bienvenida
-const flowBienvenida = addKeyword('demo')
-    .addAnswer('👋 *¡Bienvenido a nuestra tienda de ropa online!*', null, async (_, { gotoFlow }) => {
-         return gotoFlow(flowPrincipal);
-    });
+const flujoIncial = addKeyword('demo', { sensitive: true })
+    .addAction(async (ctx, ctxFn) => {
+        return ctxFn.gotoFlow(flujoBienvenida)
+    })
+
+const flujoBienvenida = addKeyword(EVENTS.ACTION)
+    .addAnswer('👋 ¡Hola! Bienvenido/a*, tu asistente virtual está aquí para ayudarte.', 
+        { delay: 1000 }
+    )
+    .addAnswer('🔑 Por favor, ingresa tu número de *RUT* con guion y dígito verificador. \n\n' +
+        'Ejemplo: *16.012.123-4*',
+        { capture: true },
+        async (ctx, ctxFn) => {
+            const rut = ctx.body.trim(); // Eliminar espacios adicionales, si los hubiera
+            const rutRegex = /^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9Kk]{1}$/;
+            const rutValido = rutRegex.test(rut);
+            if (!rutValido) {
+                return ctxFn.fallBack('Por favor, ingresa tu número de *RUT* con guion y dígito verificador. \n\n' +
+                    'Ejemplo: *16.012.123-4*');
+            }
+            const query = `SELECT * FROM userbot WHERE ruc = '${rut}'`;
+            const user = await adapterDB.db.query(query);
+
+            if (!user.rows.length) {
+                await ctxFn.flowDynamic('⚠️ *Aun no te encuentras registrado*.');
+                await ctxFn.state.update({ rut });
+                return ctxFn.gotoFlow(flujoNombreUsario);
+            }
+
+            // Actualizar estado del usuario
+            await ctxFn.state.update({ 
+                rut, 
+                nombre: user.rows[0].fullname, 
+                comuna: user.rows[0].comuna, 
+                direccion: user.rows[0].direccion 
+            });
+
+            // Saludar al usuario registrado
+            await ctxFn.flowDynamic(`Hola *${ctxFn.state.get('nombre')}* 😀, encantado/a de ayudarte.`);
+            await ctxFn.gotoFlow(flowPrincipal);
+        }
+    );
+
+const flujoNombreUsario = addKeyword(EVENTS.ACTION)
+    .addAnswer('Por favor, ingrese su nombre completo. Ejemplo: *JUAN PEREZ*', {
+        capture: true,
+    },
+    async (ctx, ctxFn) => {
+        const nombre = ctx.body
+        if(!nombre){
+            return ctxFn.fallBack('Por favor, ingrese su nombre completo. Ejemplo: *JUAN PEREZ*')
+        }
+        await ctxFn.state.update({ nombre: nombre })
+        await ctxFn.state.update({ telefono: ctx.from })
+        return ctxFn.gotoFlow(flujoTerminosCondiciones);
+    }
+
+)
+
+const flujoTerminosCondiciones = addKeyword(EVENTS.ACTION)
+    .addAnswer('*Aceptación de Términos y Condiciones:*')
+    .addAnswer('👉 Autorizo el tratamiento de mis datos personales con la finalidad de prestar servicios con fines estadísticos, de marketing, comunicar ofertas y promociones, y con el objeto de entregar información y/o beneficios de la empresa. Este contacto podrá ser telefónico, mensaje de texto, correo electrónico o WhatsApp. Los datos podrán, en casos concretos, ser comunicados a terceros para cumplir con las finalidades mencionadas.')
+    .addAnswer('Para continuar con el registro, por favor acepte los siguientes T&C.') 
+    .addAnswer(
+        'Ingrese *1* para aceptar los T&C. ✅\n' +
+        'Ingrese *2* para rechazar los T&C. ❌\n',
+        { 
+            delay: 1000, 
+            capture: true,
+        },    
+        async (ctx, ctxFn) => {
+            const opciones = ['1', '2']
+            if (!opciones.includes(ctx.body)) {
+                return ctxFn.fallBack('⚠️ Opción inválida. Ingrese *1* para aceptar los T&C. ✅\n\n' +
+                    'Ingrese *2* para rechazar los T&C. ❌')
+            }
+            switch (ctx.body) {
+                case '1':
+                    return ctxFn.gotoFlow(flujoEmail)
+                case '2':
+                    await ctxFn.flowDynamic('¡Hasta pronto! 👋')
+                    return ctxFn.endFlow()
+            }
+        }
+    )
+const flujoEmail = addKeyword(EVENTS.ACTION)
+    .addAnswer('Por favor, ingrese su correo electrónico. Ejemplo: *bWdX0@example.com*', {
+        capture: true,
+    },
+    async (ctx, ctxFn) => {
+        const email = ctx.body
+        if(!email){
+            return ctxFn.fallBack('Por favor, ingrese su correo electrónico. Ejemplo: *bWdX0@example.com*')
+        }
+        await ctxFn.state.update({ email: email })
+        return ctxFn.gotoFlow(flujoConfirmarRegistro);
+    }
+)
+
+const flujoConfirmarRegistro = addKeyword(EVENTS.ACTION)
+    .addAnswer('✅ *Confirmar registro de usuario:*\n\n' +
+        'Seleccione:\n\n' +
+        '1️⃣  *Confirmar registro.* ✅\n' +
+        '2️⃣  *Modificar registro.* ❌\n',
+        {
+            capture: true,
+        },
+        async (ctx, ctxFn) => {
+            const opciones = ['1', '2']
+            
+            // Validación de opciones
+            if (!opciones.includes(ctx.body)) {
+                return ctxFn.fallBack(
+                    '⚠️ *Opción inválida.*\n\n' +
+                    'Seleccione:\n' +
+                    '1️⃣  *Confirmar registro.* ✅\n' +
+                    '2️⃣  *Modificar registro.* ❌\n'
+                );
+            }
+
+            // Control de flujo según opción seleccionada
+            switch (ctx.body) {
+                case '1':
+                    return ctxFn.gotoFlow(flujoGuardarRegistro);
+                case '2':
+                    return ctxFn.gotoFlow(flujoEmail);
+            }
+        }
+    );
+
+
+    const flujoGuardarRegistro = addKeyword(EVENTS.ACTION)
+    .addAnswer('Registrando usuario... ⏳', 
+        { delay: 1000 },
+        async (ctx, ctxFn) => {
+            const query = `INSERT INTO userbot (fullname, ruc, telefono, comuna, direccion) VALUES 
+                        ('${ctxFn.state.get('nombre')}',
+                         '${ctxFn.state.get('rut')}',
+                          '${ctxFn.state.get('telefono')}',
+                          '',
+                          '')
+`
+            
+            const result = await adapterDB.db.query(query)
+            if (result) {
+                await ctxFn.flowDynamic(`🎉 ¡Bienvenido/a, ${ctxFn.state.get('nombre')}!`)
+                return ctxFn.gotoFlow(flowPrincipal)
+            } else {
+                return ctxFn.fallBack('⚠️ No se pudo registrar el usuario. Por favor, intente nuevamente.')
+            }
+        }
+    )
 
 
 
 const main = async () => {
-    const adapterFlow = createFlow([flowBienvenida, flowPrincipal,flowInactividad, flowTerminar, flowContinuar])
+    const adapterFlow = createFlow([
+        flujoBienvenida,
+        flujoIncial,
+        flowPrincipal,
+        flowInactividad,
+        flowTerminar,
+        flowContinuar,
+        flujoTerminosCondiciones,
+        flujoEmail,
+        flujoConfirmarRegistro,
+        flujoGuardarRegistro,
+        flujoNombreUsario
+    ])
     const adapterProvider = createProvider(BaileysProvider)
     createBot({
         flow: adapterFlow,
